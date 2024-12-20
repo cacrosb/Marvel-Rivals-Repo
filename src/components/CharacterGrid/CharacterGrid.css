@@ -1,69 +1,44 @@
 .character-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Default: 5 equal-width columns */
-    gap: 16px; /* Space between items */
-    padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 181px); /* Default grid setup */
+  gap: 16px; /* Space between items */
+  padding: 16px;
+}
+
+.character-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Ensures the content is aligned properly */
+  border: 1px solid #f3d02a; /* Optional border */
+  position: relative;
+  width: 181px; /* Fixed width for each card */
+  height: 329px; /* Fixed height for each card */
+  background-color: #0A0A0A; /* Background color */
+  overflow: hidden; /* Hide anything overflowing the card */
+}
+
+.character-card img {
+  width: 100%; /* Image fills the width of the card */
+  height: 100%; /* Image takes up 90% of the card height */
+  object-fit: cover; /* Crop the image to fit the square without stretching */
+}
+
+/* Responsive Styles for smaller screen sizes */
+@media (max-width: 600px) {
+  .character-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row for mobile */
+    gap: 16px; /* Reduce gap between items on mobile */
+    padding: 16px; /* Adjust padding to avoid overflow */
   }
-  
+
   .character-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Ensures the content is aligned properly */
-    border: 1px solid #f3d02a; /* Optional border */
-    position: relative;
-    width: 100%; /* Makes sure the width takes up the available space in the grid */
-    aspect-ratio: 1; /* Ensures the card has a 1:1 aspect ratio (square) */
-    background-color: #0A0A0A; /* Background color */
-    overflow: hidden; /* Hide anything overflowing the card */
+    width: 100%; /* Reduce card width to fit better */
   }
-  
-  .character-card img {
-    width: 100%; /* Image fills the width of the card */
-    height: 90%; /* Image takes up 90% of the card height */
-    object-fit: cover; /* Crop the image to fit the square without stretching */
+}
+
+@media (min-width: 601px) {
+  .character-grid {
+    grid-template-columns: repeat(auto-fill, 181px); /* Keep 181px wide for larger screens */
   }
-  
-  .character-name {
-    width: 100%; /* Ensure the name box takes full width */
-    text-align: center; /* Center the name */
-    background-color: #222; /* Dark background for the name box */
-    color: #f3d02a; /* Yellow text */
-    padding: 4px 0; /* Reduced padding for a smaller name box */
-    font-size: 50px; /* Set a smaller font size */
-    height: 10%; /* The name box now takes up 10% of the card height */
-    display: flex;
-    align-items: center; /* Vertically center the name */
-    justify-content: center; /* Horizontally center the name */
-  }
-  
-  .character-card h2 {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Responsive Styles for smaller screen sizes */
-  @media (max-width: 1200px) {
-    .character-grid {
-      grid-template-columns: repeat(4, 1fr); /* 4 items per row for medium screens */
-    }
-  }
-  
-  @media (max-width: 900px) {
-    .character-grid {
-      grid-template-columns: repeat(3, 1fr); /* 3 items per row for tablets */
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .character-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2 items per row for mobile */
-    }
-  }
-  
-  @media (max-width: 400px) {
-    .character-grid {
-      grid-template-columns: 1fr; /* 1 item per row for very small screens */
-    }
-  }
-  
+}

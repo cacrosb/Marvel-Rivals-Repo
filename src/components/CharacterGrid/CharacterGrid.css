@@ -51,5 +51,6 @@
     padding: 16px;
     justify-content: center;
     margin-top: 16px;
+    align-items: center;
   }
 }

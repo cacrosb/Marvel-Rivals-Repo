@@ -19,7 +19,6 @@ const Navbar = () => {
       </div>
       <img src={logo} alt="Marvel Rivals" className="logo" />
       <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-        <li><a href="/">Home</a></li>
         <li><a href="/characters">Characters</a></li>
         <li><a href="/news">News</a></li>
         <li><a href="/forum">Forum</a></li>

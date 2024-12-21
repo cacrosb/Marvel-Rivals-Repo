@@ -86,7 +86,7 @@
   .nav-links {
     list-style: none;
     display: flex;
-    gap: 5rem; /* Space between items */
+    gap: 2rem; /* Space between items */
     position: absolute;
     top: calc(100% - 0px); /* Dropdown below navbar */
     left: 0;
@@ -94,7 +94,7 @@
     width: calc(100% - 2rem);
     max-width: 100vw;
     flex-direction: column;
-    justify-content: center; /* Vertically center the items */
+    /*justify-content: top; /* Vertically center the items */
     align-items: center; /* Horizontally center the items */
     transform: translateX(-100%); /* Initially hidden off-screen */
     transition: transform 0.3s ease-in-out; /* Smooth transition for sliding */

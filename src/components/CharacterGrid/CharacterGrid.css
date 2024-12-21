@@ -1,6 +1,6 @@
 .character-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 181px); /* Default grid setup */
+  grid-template-columns: repeat(auto-fill, minmax(181px, 1fr)); /* Default grid setup */
   gap: 16px; /* Space between items */
   padding: 16px;
 }
@@ -16,6 +16,7 @@
   height: 329px; /* Fixed height for each card */
   background-color: #0A0A0A; /* Background color */
   overflow: hidden; /* Hide anything overflowing the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scaling and shadow */
 }
 
 .character-card img {
@@ -23,6 +24,12 @@
   height: 100%; /* Image takes up 90% of the card height */
   object-fit: cover; /* Crop the image to fit the square without stretching */
 }
+
+.character-card:hover {
+  transform: scale(1.05); /* Slightly scale up the card on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+}
+
 
 /* Responsive Styles for smaller screen sizes */
 @media (max-width: 600px) {

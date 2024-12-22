@@ -1,6 +1,6 @@
 .character-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(181px, 1fr)); /* Default grid setup */
+  grid-template-columns: repeat(auto-fill, minmax(181px, 1fr)); /* Flexible grid setup */
   gap: 16px; /* Space between items */
   padding: 16px;
 }
@@ -9,20 +9,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Ensures the content is aligned properly */
+  justify-content: flex-start; /* Align content to the top */
   border: 1px solid #f3d02a; /* Optional border */
   position: relative;
-  width: 181px; /* Fixed width for each card */
-  height: 329px; /* Fixed height for each card */
+  width: 100%; /* Card width should adapt to grid */
+  min-height: 329px; /* Ensure consistent height */
   background-color: #0A0A0A; /* Background color */
-  overflow: hidden; /* Hide anything overflowing the card */
+  overflow: hidden; /* Hide anything overflowing */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scaling and shadow */
+  flex-grow: 1; /* Allow card to grow and fill space */
 }
 
 .character-card img {
   width: 100%; /* Image fills the width of the card */
-  height: 100%; /* Image takes up 90% of the card height */
-  object-fit: cover; /* Crop the image to fit the square without stretching */
+  height: auto; /* Auto height for the image to maintain aspect ratio */
+  object-fit: cover; /* Ensures the image covers the space without stretching */
 }
 
 .character-card:hover {
@@ -30,27 +31,29 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
 }
 
-
-/* Responsive Styles for smaller screen sizes */
+/* Mobile Styles: 2 items per row */
 @media (max-width: 600px) {
   .character-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 items per row for mobile */
-    gap: 16px; /* Reduce gap between items on mobile */
+    gap: 16px; /* Maintain gap between items */
     padding: 16px; /* Adjust padding to avoid overflow */
   }
 
   .character-card {
-    width: 100%; /* Reduce card width to fit better */
+    width: 100%; /* Cards should take full width */
   }
 }
 
-@media (min-width: 601px) {
+/* Desktop Styles: 7 items per row */
+@media (min-width: 1025px) {
   .character-grid {
-    grid-template-columns: repeat(7, 181px); /* Keep 181px wide for larger screens */
-    width: 100%;
-    padding: 16px;
-    justify-content: center;
-    margin-top: 16px;
-    align-items: center;
+    grid-template-columns: repeat(7, 1fr); /* 7 items per row on desktop */
+    gap: 16px; /* Space between items */
+    padding: 16px; /* Padding adjustment */
+  }
+
+  .character-card {
+    width: 100%; /* Ensure full width within the grid */
+    min-height: 329px; /* Ensure consistent height */
   }
 }

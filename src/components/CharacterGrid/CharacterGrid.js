@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './CharacterGrid.css';
 import ironManImage from '../../Images/IronMan.png';  // Corrected path
 import spiderManImage from '../../Images/SpiderMan.png'; // Corrected path
@@ -76,9 +77,13 @@ const CharacterGrid = () => {
   return (
     <div className="character-grid">
       {characters.map((character) => (
-        <div key={character.id} className="character-card">
+        <Link
+          key={character.id}
+          to={`/character/${character.id}`}  // Use the ID to navigate
+          className="character-card"
+        >
           <img src={character.image} alt={character.name} />
-        </div>
+        </Link>
       ))}
     </div>
   );

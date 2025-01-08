@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import logo from '../../Images/Official_Logo_29.webp';
+import { Link } from 'react-router-dom'; // Import Link
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,8 @@ const Navbar = () => {
       </div>
       <img src={logo} alt="Marvel Rivals" className="logo" />
       <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-        <li><a href="/characters">Characters</a></li>
+        {/* Updated to use Link for routing */}
+        <li><Link to="/characters">Characters</Link></li>
         <li><a href="/news">News</a></li>
         <li><a href="/forum">Forum</a></li>
       </ul>
